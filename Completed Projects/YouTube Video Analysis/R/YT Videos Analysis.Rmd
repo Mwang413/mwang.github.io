@@ -1,0 +1,93 @@
+---
+title: "R Notebook"
+output:
+  word_document: default
+  html_notebook: default
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+# The Project
+
+Examines between the categories of the videos and their popularity? This includes variables such as: likes, dislikes, comment counts, and total views
+
+# Methodology
+
+Calculate covariance and correlation: This sees the relationships between the variables, and their tendency to change together.
+
+Plot the relationships: This is a visual representation of the relationships of the data.
+
+KNN analysis: This is an analytic approach that is appropriate for predicting a categorical variable. This is fitting for the data because I use the continuous variables to predict the categorical variables.
+
+Logistic Model: This is used to model and predict how many likes a video receives based on what categories the videos are.
+
+```{r Loading Data}
+library(ggplot2)
+library(class)
+
+df<-read.csv("/Users/muduo/Downloads/ThinkStats2-master/Youtube_Video_Analysis/USvideos.csv")
+
+
+df$category_id <- as.factor(df$category_id)
+```
+
+```{r scatter plot}
+ggplot(df, aes(x=category_id, y=views))+geom_point()
+```
+
+```{r likes prediction models}
+lm1 <- glm(df$likes ~ df$category_id)
+summary(lm1)
+
+predictions <- predict(lm1, type = "response")
+
+head(predictions)
+
+head(df$likes)
+```
+
+
+
+``` {r plots of select relationships}
+ggplot(data = df, aes(x=views, y=likes, color=category_id)) + geom_point()
+
+ggplot(data = df, aes(x=likes, y=dislikes, color=category_id)) + geom_point()
+
+ggplot(data = df, aes(x=views, y=comment_count, color=category_id)) + geom_point()
+
+ggplot(data = df, aes(x=dislikes, y=comment_count, color=category_id)) + geom_point()
+```
+
+
+```{r knn model}
+df_knn <- data.frame(df$likes, df$dislikes, df$views, df$comment_count, df$category_id)
+head(df_knn)
+
+classes <- knn(train = df_knn[1:20001,], test = df_knn[20002:40002,], cl=df_knn$df.category_id[1:20001], k = 29)
+
+accuracy_table <- data.frame(classes, df_knn$df.category_id[1:20001])
+
+head(accuracy_table)
+
+sum(accuracy_table$classes == accuracy_table$df_knn.df.category_id.1.20001.)
+3421/20000
+```
+
+
+# Conclusion
+
+## Implications
+
+It is to be expected that content creating more often than not results in "triviality." But every once in a while, a video does return high reception, and the video will dominate the trend, and absorb a significant proportion of the view.
+
+## Story of the Data
+
+As expected, the number of views and likes grow with each other. However, there is a difference between the different categories in terms of the number of views, likes, dislikes, and comments the videos receive. With the given data, the model is able to predict the categories correctly 17 percent of the times. We may in turn expect different kinds receptions for the videos based on their genre.
+
+## Limitations of the analysis & Further Development
+
+This analysis could be improved by doing a k-centers cluster analysis. It could also be improved by separating the data into different categories, and see how the ratios between likes, views, dislikes and comments differ.
+
+Another one would be to mine the textual data from the video descriptions, and see if the videos can be separated into their contents or moods or nature of the video.
+```
