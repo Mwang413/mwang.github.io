@@ -4,6 +4,6 @@
 - 💞️ I’m looking to join with a team of data scientists to learn and collaborate on projects of any kind
 - 📫 How to reach me:
       cell: 224.256.4249
-      email: W.Muduo@gmail.com
-Github.io:
+      email: w.muduo@gmail.com
+Page:
 https://mwang413.github.io/portfolio/
