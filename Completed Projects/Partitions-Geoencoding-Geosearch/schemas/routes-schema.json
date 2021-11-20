@@ -1,0 +1,64 @@
+{
+    "type": ["object", "null"],
+    "properties": {
+          "airline": 
+            {"type": ["object", "null"],
+            "properties": {
+                "airline_id": {"type": ["number", "null"]},
+                "name": {"type": ["string", "null"]},
+                "alias": {"type": ["string", "null"]},
+                "iata": {"type": ["string", "null"]},
+                "icao": {"type": ["string", "null"]},
+                "callsign": {"type": ["string", "null"]},
+                "country": {"type": ["string", "null"]},
+                "active": {"type": ["boolean", "null"]}
+                }
+            },
+            
+          "src_airport": 
+            {"type": ["object", "null"],
+            "properties": {
+              "airport_id": {"type": ["number", "null"]},
+              "name": {"type": ["string", "null"]},
+              "city": {"type": ["string", "null"]},
+              "country": {"type": ["string", "null"]},
+              "iata": {"type": ["string", "null"]},
+              "icao": {"type":["string", "null"]},
+              "latitude": {"type": ["number", "null"]},
+              "longitude": {"type":["number", "null"]},
+              "altitude": {"type": ["number", "null"]},
+              "timezone": {"type": ["number", "null"]},
+              "dst": {"type":["string", "null"]},
+              "tz_id": {"type":["string", "null"]},
+              "type": {"type": ["string", "null"]},
+              "source": {"type": ["string", "null"]}
+              }
+            },
+        
+         "dst_airport": 
+          {"type": ["object", "null"],
+          "properties":{
+            "airport_id": {"type": ["number", "null"]},
+            "name": {"type": ["string", "null"]},
+            "city": {"type": ["string", "null"]},
+            "country": {"type":["string", "null"]},
+            "iata": {"type": ["string", "null"]},
+            "icao": {"type": ["string", "null"]},
+            "latitude": {"type": ["number", "null"]},
+            "longitude": {"type": ["number", "null"]},
+            "altitude": {"type": ["number", "null"]},
+            "timezone": {"type": ["number", "null"]},
+            "dst": {"type": ["string", "null"]},
+            "tz_id": {"type": ["string", "null"]},
+            "type": {"type": ["string", "null"]},
+            "source": {"type": ["string", "null"]}
+            }
+          },
+        
+          "codeshare": {"type": ["boolean","null"]},
+        
+          "equipment": {"type": ["array","null"]}
+          
+
+    }
+}
