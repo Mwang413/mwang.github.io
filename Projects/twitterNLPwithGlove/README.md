@@ -1,5 +1,5 @@
 - 👋 Hi, I’m Muduo Wang
-- 🤖 I’m a Data and MLOps Enigneer
+- 🤖 I’m a Data and MLOps Engineer
 - 🧑‍🎓 I obtained my M.S. at Bellevue University in Omaha, NE
 - 🥳 
 - 📫 How to reach me:
